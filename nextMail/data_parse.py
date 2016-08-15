@@ -38,3 +38,5 @@ finally:
 for bank_name in bank_details.keys():
     RedisHelper().set_redis_hash(bank_name, bank_details[bank_name])
     RedisHelper().set_redis_list(bank_name +'_city', bank_city_mapping[bank_name])
+
+RedisHelper().set_redis_list("bank_names", bank_details.keys())
