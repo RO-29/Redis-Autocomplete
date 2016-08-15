@@ -17,14 +17,20 @@ def return_bank_names():
     emit('bank_names_recieve', bank_names)
 
 @socketio.on('get_city_names')
-def return_city_names(bank_name):
+def return_city_names(bank_name, city_keyword):
     city_names = RedisHelper().get_redis_list(bank_name +'_city')
-    emit('bank_city_recieve', city_names)
+
+    #return list of suggested cities based on city keyword recieved from user input
+    suggested_cities = [city for city in city_names if city_keyword.lower() in city.lower()]
+    emit('bank_city_recieve', suggested_cities)
 
 @socketio.on('get_city_details')
 def return_city_names(bank_name,city_name):
     city_details = RedisHelper().get_redis_hash(bank_name ,city)
     emit('bank_city_details_recieve', city_details)
+
+@socketio.on()
+
 
 if __name__ == '__main__':
     socketio.run(app)
