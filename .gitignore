@@ -1,3 +1,4 @@
 *.pyc
 nextMail/*.pyc
+nextMail/static/Semantic-UI/*
 
