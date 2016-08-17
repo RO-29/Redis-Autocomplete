@@ -1,0 +1,35 @@
+#sides{
+margin:0;
+}
+#left{
+float:left;
+width:60%;
+overflow:hidden;
+}
+#right{
+float:left;
+width:40%;
+overflow:auto;
+} 
+
+.card {
+    width: 400px;
+    height: 300px;
+    margin: 80px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+
+}
+
+.card-header {
+    height: 60px;
+    padding: 20px 30px 0;
+    border-bottom: 1px solid #e1e8ee;
+}
+ 
+.card-body {
+    height: 340px;
+    padding: 30px 30px 20px;
+}

@@ -1,18 +1,45 @@
-<html>
-	<head>
-		<title>nextMail-Bank-dropdown</title>
-	</head>
-	<body>
-		<select id="ddlViewBy">
-		  <option value="1">test1</option>
-		  <option value="2" selected="selected">test2</option>
-		  <option value="3">test3</option>
-		</select>
+<!DOCTYPE html>
+<html lang="en">
 
-	</body>
-</html>
+<head>
+	<meta charset='UTF-8'>
+	<title>NextMail--bank_details</title>
+	<link rel="stylesheet" href="static/search.css">
+	<link rel="stylesheet" href="static/main.css">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="left">
+		
+			<br><br><br><br>
+			<center><h1>Bank Names</h1>
+			<div id="bank-names">
+				<select id="bank_names_list"></select>
+			</div>
+			<br><br>
+			<h1>Search city</h1></center>
+			<section class="main">
+	 			<form class="search">
+				 	<input type="text" id="city_keyword" name="query" placeholder="Search..." />
+				 	<ul class="results" id = "results_append">
+				 		</ul>    
+		 		</form>
+
+		</section>
+
+  </div>
+
+
+  <div id="right" style="overflow-y: scroll; height:800px;">
+  	
+
+</div>
+</div>
+</body>
 <script src="/static/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script type="text/javascript" src="/static/socket_connect.js"></script>
-<script src="/static/semantic.js"></script>
+</html>
