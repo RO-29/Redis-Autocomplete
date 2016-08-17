@@ -2,4 +2,4 @@
 nextMail/*.pyc
 nextMail/static/Semantic-UI/*
 nextMail/data_parse_old.py*
-
+nextMail/data.json
