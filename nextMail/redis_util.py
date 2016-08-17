@@ -27,17 +27,20 @@ class RedisHelper(object):
 
         return
 
-    def get_redis_hash(self, bank_name, city):
+    def get_redis_hash(self, key, key_2 = -1):
         try:
-            bank_details = self.redis_client_object.hmget(bank_name, city)
+            if key_2 not in [-1]:
+                return_hash = self.redis_client_object.hmget(key, key_2)
+            else:
+                return_hash = self.redis_client_object.hgetall(key)
         except redis.exceptions.ConnectionError:
             self.re_init_redis()
-            bank_details = self.redis_client_object.hmget(bank_name, city)
+            if key_2 not in [-1]:
+                return_hash = self.redis_client_object.hmget(key, key_2)
+            else:
+                return_hash = self.redis_client_object.hgetall(key)
         
-        if bank_details[0] is not None:
-            return literal_eval(bank_details[0])
-        else:
-            return []
+        return return_hash
 
     def set_redis_list(self, key, list):
         try:
@@ -47,18 +50,14 @@ class RedisHelper(object):
             self.redis_client_object.rpush(key, list)
         return
 
-    def get_redis_list(self, bank_name, start_index = 0, end_index = -1):
+    def get_redis_list(self, key, start_index = 0, end_index = -1):
         try:
-            bank_cities = self.redis_client_object.lrange(bank_name, start_index, end_index)
+            return_list = self.redis_client_object.lrange(key, start_index, end_index)
         except redis.exceptions.ConnectionError:
             self.re_init_redis()
-            bank_cities = self.redis_client_object.lrange(bank_name, start_index, end_index)
+            return_list = self.redis_client_object.lrange(key, start_index, end_index)
 
-        if bank_cities:
-            bank_cities = literal_eval(bank_cities[0])
-            return bank_cities
-        else:
-            return []
+        return return_list
 
     #Assign Equal weightage to all keywords(0), dict_seq {value:score}
     def set_sorted_list(self, key, dict_seq):
