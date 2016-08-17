@@ -1,4 +1,5 @@
 *.pyc
 nextMail/*.pyc
 nextMail/static/Semantic-UI/*
+nextMail/data_parse_old.py*
 
