@@ -42,6 +42,7 @@ socket.on('bank_city_details_recieve', function(data_city_branches) {
 
 
 
+$('form').submit(false);
 
 
 $( "#bank_names_list" ).change(function() {
