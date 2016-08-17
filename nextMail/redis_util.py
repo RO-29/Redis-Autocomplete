@@ -78,10 +78,10 @@ class RedisHelper(object):
 
     def get_sorted_lex_string(self, key, min_str, max_str):
         try:
-            return self.redis_client_object.zrevrangebylex(key, min_str, max_str)
+            return self.redis_client_object.zrangebylex(key, min_str, max_str)
         except redis.exceptions.ConnectionError:
             self.re_init_redis()
-            return self.redis_client_object.zrevrangebylex(key, min_str, max_str)
+            return self.redis_client_object.zrangebylex(key, min_str, max_str)
         
 
 
